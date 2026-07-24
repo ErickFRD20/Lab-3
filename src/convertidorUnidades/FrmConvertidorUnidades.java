@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package covertidorUnidades;
+package convertidorUnidades;
 
 /**
  *
@@ -28,24 +28,12 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         combPrimerUnidades = new javax.swing.JComboBox<>();
         CombSegundoUnidades = new javax.swing.JComboBox<>();
         spnCambiarGrados = new javax.swing.JSpinner();
         txtRespuesta = new javax.swing.JTextField();
         botonCambiar = new javax.swing.JButton();
-
-        jMenu1.setText("jMenu1");
-
-        jMenu4.setText("File");
-        jMenuBar2.add(jMenu4);
-
-        jMenu5.setText("Edit");
-        jMenuBar2.add(jMenu5);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,10 +142,6 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
     private javax.swing.JButton botonCambiar;
     private javax.swing.JComboBox<String> combPrimerUnidades;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JSpinner spnCambiarGrados;
     private javax.swing.JTextField txtRespuesta;
     // End of variables declaration//GEN-END:variables
