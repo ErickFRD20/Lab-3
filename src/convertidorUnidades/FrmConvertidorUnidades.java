@@ -42,11 +42,11 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
         jInternalFrame1.setVisible(true);
 
         combPrimerUnidades.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        combPrimerUnidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAHRENHEIT", "KELVIN", "RANKINE", "CELSIUS" }));
+        combPrimerUnidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAHRENHEIT", "KELVIN", "CELSIUS" }));
         combPrimerUnidades.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         CombSegundoUnidades.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        CombSegundoUnidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAHRENHEIT", "KELVIN", "RANKINE", "CELSIUS" }));
+        CombSegundoUnidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAHRENHEIT", "KELVIN", "CELSIUS" }));
         CombSegundoUnidades.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         CombSegundoUnidades.addActionListener(this::CombSegundoUnidadesActionPerformed);
 
@@ -57,7 +57,7 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
         txtRespuesta.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         botonCambiar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        botonCambiar.setText("<->");
+        botonCambiar.setText("Convertir:");
         botonCambiar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         botonCambiar.addActionListener(this::botonCambiarActionPerformed);
 
@@ -70,13 +70,13 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(spnCambiarGrados)
                     .addComponent(combPrimerUnidades, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CombSegundoUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(botonCambiar, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                        .addGap(26, 26, 26)
-                        .addComponent(CombSegundoUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botonCambiar, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
         );
         jInternalFrame1Layout.setVerticalGroup(
@@ -85,12 +85,12 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CombSegundoUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combPrimerUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonCambiar))
+                    .addComponent(combPrimerUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spnCambiarGrados, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonCambiar))
                 .addGap(25, 25, 25))
         );
 
@@ -128,7 +128,7 @@ EnumTemperatura destino =
     double resultado = controlador.convertir(valor, origen, destino);
     
     txtRespuesta.setText(String.valueOf(resultado));
-    System.out.println("Botón");                                    
+    System.out.println("Respuesta");                                    
 
         // TODO add your handling code here:
     }//GEN-LAST:event_botonCambiarActionPerformed

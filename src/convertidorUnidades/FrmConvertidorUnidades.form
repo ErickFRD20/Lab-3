@@ -61,14 +61,14 @@
                       <Component id="spnCambiarGrados" max="32767" attributes="0"/>
                       <Component id="combPrimerUnidades" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="CombSegundoUnidades" min="-2" pref="134" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="botonCambiar" pref="62" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="CombSegundoUnidades" min="-2" pref="134" max="-2" attributes="0"/>
+                          <Component id="botonCambiar" pref="79" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtRespuesta" min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtRespuesta" min="-2" pref="134" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
@@ -81,12 +81,12 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="CombSegundoUnidades" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="combPrimerUnidades" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="botonCambiar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="spnCambiarGrados" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="txtRespuesta" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="botonCambiar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
@@ -100,11 +100,10 @@
               <Font name="Arial" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="3">
                 <StringItem index="0" value="FAHRENHEIT"/>
                 <StringItem index="1" value="KELVIN"/>
-                <StringItem index="2" value="RANKINE"/>
-                <StringItem index="3" value="CELSIUS"/>
+                <StringItem index="2" value="CELSIUS"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -123,11 +122,10 @@
               <Font name="Arial" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="3">
                 <StringItem index="0" value="FAHRENHEIT"/>
                 <StringItem index="1" value="KELVIN"/>
-                <StringItem index="2" value="RANKINE"/>
-                <StringItem index="3" value="CELSIUS"/>
+                <StringItem index="2" value="CELSIUS"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -170,7 +168,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;-&gt;"/>
+            <Property name="text" type="java.lang.String" value="Convertir:"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true"/>
