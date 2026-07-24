@@ -8,6 +8,8 @@ package covertidorUnidades;
  *
  * @author mr117
  */
-public class EnumTemperatura {
-    
+public enum EnumTemperatura {
+    CELSIUS,
+    FAHRENHEIT,
+    KELVIN
 }
