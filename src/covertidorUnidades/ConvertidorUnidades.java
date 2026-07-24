@@ -9,5 +9,8 @@ package covertidorUnidades;
  * @author mr117
  */
 public class ConvertidorUnidades {
-    
+    public double convertir(double valor, EnumTemperatura origen, EnumTemperatura destino) {
+        double celsius = origen.aCelsius(valor);
+        return destino.desdeCelsius(celsius);
+    }
 }
