@@ -28,21 +28,111 @@ public class frmEditor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtTexto = new javax.swing.JTextArea();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        txtArchivo = new javax.swing.JMenu();
+        txtAbrir = new javax.swing.JMenuItem();
+        txtGuardar = new javax.swing.JMenuItem();
+        txtSalir = new javax.swing.JMenuItem();
+        txtEditar = new javax.swing.JMenu();
+        txtCopiar = new javax.swing.JMenuItem();
+        txtCortar = new javax.swing.JMenuItem();
+        txtPegar = new javax.swing.JMenuItem();
+        txtFuente = new javax.swing.JMenu();
+        txtNegrita = new javax.swing.JMenuItem();
+        txtCursiva = new javax.swing.JMenuItem();
+        txtColor = new javax.swing.JMenu();
+        txtFondo = new javax.swing.JMenuItem();
+        txtLetra = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtTexto.setColumns(20);
+        txtTexto.setRows(5);
+        jScrollPane1.setViewportView(txtTexto);
+
+        txtArchivo.setText("Archivo");
+
+        txtAbrir.setText("Abrir");
+        txtArchivo.add(txtAbrir);
+
+        txtGuardar.setText("Guardar");
+        txtGuardar.addActionListener(this::txtGuardarActionPerformed);
+        txtArchivo.add(txtGuardar);
+
+        txtSalir.setText("Salir");
+        txtArchivo.add(txtSalir);
+
+        jMenuBar1.add(txtArchivo);
+
+        txtEditar.setText("Editar");
+
+        txtCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        txtCopiar.setText("Copiar");
+        txtEditar.add(txtCopiar);
+
+        txtCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        txtCortar.setText("Cortar");
+        txtCortar.addActionListener(this::txtCortarActionPerformed);
+        txtEditar.add(txtCortar);
+
+        txtPegar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        txtPegar.setText("Pegar");
+        txtPegar.addActionListener(this::txtPegarActionPerformed);
+        txtEditar.add(txtPegar);
+
+        txtFuente.setText("Fuente");
+
+        txtNegrita.setText("Negrita");
+        txtFuente.add(txtNegrita);
+
+        txtCursiva.setText("Cursiva");
+        txtFuente.add(txtCursiva);
+
+        txtEditar.add(txtFuente);
+
+        txtColor.setText("Color");
+
+        txtFondo.setText("Fondo");
+        txtColor.add(txtFondo);
+
+        txtLetra.setText("Letra");
+        txtColor.add(txtLetra);
+
+        txtEditar.add(txtColor);
+
+        jMenuBar1.add(txtEditar);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGuardarActionPerformed
+
+    private void txtCortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCortarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCortarActionPerformed
+
+    private void txtPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPegarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPegarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +160,22 @@ public class frmEditor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem txtAbrir;
+    private javax.swing.JMenu txtArchivo;
+    private javax.swing.JMenu txtColor;
+    private javax.swing.JMenuItem txtCopiar;
+    private javax.swing.JMenuItem txtCortar;
+    private javax.swing.JMenuItem txtCursiva;
+    private javax.swing.JMenu txtEditar;
+    private javax.swing.JMenuItem txtFondo;
+    private javax.swing.JMenu txtFuente;
+    private javax.swing.JMenuItem txtGuardar;
+    private javax.swing.JMenuItem txtLetra;
+    private javax.swing.JMenuItem txtNegrita;
+    private javax.swing.JMenuItem txtPegar;
+    private javax.swing.JMenuItem txtSalir;
+    private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }
