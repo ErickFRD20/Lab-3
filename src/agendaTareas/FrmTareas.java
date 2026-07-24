@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package lab3borrador;
+package agendaTareas;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,13 +14,21 @@ package lab3borrador;
 public class FrmTareas extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmTareas.class.getName());
-
+    
+    private DefaultListModel <AgendaTareas> modeloLista;
+    
     /**
      * Creates new form FrmTareas
      */
     public FrmTareas() {
         initComponents();
+        
+        modeloLista = new DefaultListModel<>();
+        
+        listaTareas.setModel(modeloLista);     
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,14 +128,68 @@ public class FrmTareas extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        String textoTarea = txtTarea.getText().trim();
+        
+        if (textoTarea.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese un texto", "Campo vacio", JOptionPane.ERROR_MESSAGE);
+        }  
+    AgendaTareas nuevaTarea = new AgendaTareas(textoTarea);
+    
+    modeloLista.addElement(nuevaTarea);
+    
+    txtTarea.setText("");
+    txtTarea.requestFocus();       
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+
+    
     private void btnCompletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletarActionPerformed
         // TODO add your handling code here:
+        
+        int iSeleccionado = listaTareas.getSelectedIndex();
+        
+        if (iSeleccionado == -1) {
+           JOptionPane.showMessageDialog(this, "Seleccione una tarea para completar" , 
+                   "Completar tarea", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        AgendaTareas tareaSeleccionada = modeloLista.getElementAt(iSeleccionado);
+        
+        tareaSeleccionada.setEstado(true);
+        
+        modeloLista.set(iSeleccionado, tareaSeleccionada);
     }//GEN-LAST:event_btnCompletarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        
+        int iSeleccionado = listaTareas.getSelectedIndex();
+        
+        if (iSeleccionado == -1) {
+           JOptionPane.showMessageDialog(this, "Seleccione una tarea para eliminar" , 
+                   "Eliminar tarea", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        AgendaTareas tareaSeleccionada = modeloLista.getElementAt(iSeleccionado);
+        
+        tareaSeleccionada.setEstado(true);
+        
+        modeloLista.set(iSeleccionado, tareaSeleccionada);
+        
+
+        if (!tareaSeleccionada.isEstado()) {
+        int respuesta = JOptionPane.showConfirmDialog(
+            this, 
+            "La tarea \"" + tareaSeleccionada.getTarea() + "\" esta PENDIENTE.\n¿Esta seguro de que desea eliminarla?", 
+            "Confirmar eliminacion", 
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE
+        );
+        if (respuesta != JOptionPane.YES_OPTION) {
+        }
+        }
+        
+        modeloLista.remove(iSeleccionado);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
@@ -147,7 +212,12 @@ public class FrmTareas extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        java.awt.EventQueue.invokeLater(() -> {
+        FrmTareas vista = new FrmTareas();
+        ListaTareas modelo = new ListaTareas(10); 
+        new ControladorTareas(vista, modelo);     
+        vista.setVisible(true);
+    });
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FrmTareas().setVisible(true));
     }
@@ -159,7 +229,15 @@ public class FrmTareas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaTareas;
+    private javax.swing.JList<AgendaTareas> listaTareas;
     private javax.swing.JTextField txtTarea;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnAgregar() { return btnAgregar; }
+    public javax.swing.JButton getBtnCompletar() { return btnCompletar; }
+    public javax.swing.JButton getBtnEliminar() { return btnEliminar; }
+    public javax.swing.JList<AgendaTareas> getListaTareas() { return listaTareas; }
+    public javax.swing.JTextField getTxtTarea() { return txtTarea; }
+
+
 }

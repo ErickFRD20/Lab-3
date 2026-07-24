@@ -8,6 +8,21 @@ package agendaTareas;
  *
  * @author Dylan
  */
-public class ControladorTareas {
+import javax.swing.DefaultListModel;
+
+public class ControladorTareas  {
+
+    // Referencias a la Vista y al Modelo contenedor
+    private FrmTareas vista;
+    private ListaTareas modelo;
     
+    // Modelo visual dinamico para conectar con el JList de la vista
+    private DefaultListModel<AgendaTareas> modeloLista;
+
+    public ControladorTareas(FrmTareas vista, ListaTareas modelo) {
+        this.vista = vista;
+        this.modelo = modelo;
+        this.modeloLista = new DefaultListModel<>();
+
+    }
 }
