@@ -9,6 +9,8 @@ package EditorPaquetes;
  * @author josed
  */
 public class frmEditor extends javax.swing.JFrame {
+    private ControladorPaquetes controlador = new ControladorPaquetes();
+    private boolean guardado = true;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmEditor.class.getName());
 
@@ -50,11 +52,17 @@ public class frmEditor extends javax.swing.JFrame {
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
+        txtTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTextoKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtTexto);
 
         txtArchivo.setText("Archivo");
 
         txtAbrir.setText("Abrir");
+        txtAbrir.addActionListener(this::txtAbrirActionPerformed);
         txtArchivo.add(txtAbrir);
 
         txtGuardar.setText("Guardar");
@@ -62,6 +70,7 @@ public class frmEditor extends javax.swing.JFrame {
         txtArchivo.add(txtGuardar);
 
         txtSalir.setText("Salir");
+        txtSalir.addActionListener(this::txtSalirActionPerformed);
         txtArchivo.add(txtSalir);
 
         jMenuBar1.add(txtArchivo);
@@ -70,6 +79,7 @@ public class frmEditor extends javax.swing.JFrame {
 
         txtCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         txtCopiar.setText("Copiar");
+        txtCopiar.addActionListener(this::txtCopiarActionPerformed);
         txtEditar.add(txtCopiar);
 
         txtCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -85,9 +95,11 @@ public class frmEditor extends javax.swing.JFrame {
         txtFuente.setText("Fuente");
 
         txtNegrita.setText("Negrita");
+        txtNegrita.addActionListener(this::txtNegritaActionPerformed);
         txtFuente.add(txtNegrita);
 
         txtCursiva.setText("Cursiva");
+        txtCursiva.addActionListener(this::txtCursivaActionPerformed);
         txtFuente.add(txtCursiva);
 
         txtEditar.add(txtFuente);
@@ -95,9 +107,11 @@ public class frmEditor extends javax.swing.JFrame {
         txtColor.setText("Color");
 
         txtFondo.setText("Fondo");
+        txtFondo.addActionListener(this::txtFondoActionPerformed);
         txtColor.add(txtFondo);
 
         txtLetra.setText("Letra");
+        txtLetra.addActionListener(this::txtLetraActionPerformed);
         txtColor.add(txtLetra);
 
         txtEditar.add(txtColor);
@@ -123,16 +137,57 @@ public class frmEditor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuardarActionPerformed
-        // TODO add your handling code here:
+       controlador.guardar(this);
+       guardado= true;
     }//GEN-LAST:event_txtGuardarActionPerformed
 
     private void txtCortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCortarActionPerformed
-        // TODO add your handling code here:
+        controlador.cortar(txtTexto);
     }//GEN-LAST:event_txtCortarActionPerformed
 
     private void txtPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPegarActionPerformed
-        // TODO add your handling code here:
+        controlador.pegar(txtTexto);
     }//GEN-LAST:event_txtPegarActionPerformed
+
+    private void txtAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAbrirActionPerformed
+       controlador.abrir(this, txtTexto);
+       guardado = true;
+    }//GEN-LAST:event_txtAbrirActionPerformed
+
+    private void txtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalirActionPerformed
+        if(guardado){
+            dispose();
+        }else{
+            if(controlador.confirmarSalida(this)){
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_txtSalirActionPerformed
+
+    private void txtCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCopiarActionPerformed
+       controlador.copiar(txtTexto);
+    }//GEN-LAST:event_txtCopiarActionPerformed
+
+    private void txtNegritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNegritaActionPerformed
+        controlador.negrita(txtTexto);
+    }//GEN-LAST:event_txtNegritaActionPerformed
+
+    private void txtCursivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCursivaActionPerformed
+        controlador.cursiva(txtTexto);
+    }//GEN-LAST:event_txtCursivaActionPerformed
+
+    private void txtFondoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFondoActionPerformed
+        controlador.colorFondo(this, txtTexto);
+    }//GEN-LAST:event_txtFondoActionPerformed
+
+    private void txtLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLetraActionPerformed
+        controlador.colorLetra(this, txtTexto);
+    }//GEN-LAST:event_txtLetraActionPerformed
+
+    private void txtTextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTextoKeyTyped
+        guardado = false;
+       //"identificar que hay cambios sin guardar
+    }//GEN-LAST:event_txtTextoKeyTyped
 
     /**
      * @param args the command line arguments
