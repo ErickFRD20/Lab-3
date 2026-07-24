@@ -66,7 +66,6 @@ public class ControladorPaquetes {
     }
 
     public void abrir(JFrame ventana,JTextArea area){
-        area.setText("");
         JOptionPane.showMessageDialog(ventana,"Documento abierto correctamente.");
         ventana.setTitle("Documento abierto");
     }
