@@ -9,7 +9,7 @@ package convertidorUnidades;
  * @author mr117
  */
 public class FrmConvertidorUnidades extends javax.swing.JFrame {
-    
+    private ConvertidorUnidades convertidor = new ConvertidorUnidades();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmConvertidorUnidades.class.getName());
 
     /**
@@ -48,6 +48,7 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
         CombSegundoUnidades.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CombSegundoUnidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FAHRENHEIT", "KELVIN", "RANKINE", "CELSIUS" }));
         CombSegundoUnidades.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        CombSegundoUnidades.addActionListener(this::CombSegundoUnidadesActionPerformed);
 
         spnCambiarGrados.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -58,6 +59,7 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
         botonCambiar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botonCambiar.setText("<->");
         botonCambiar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        botonCambiar.addActionListener(this::botonCambiarActionPerformed);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -69,12 +71,12 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
                     .addComponent(spnCambiarGrados)
                     .addComponent(combPrimerUnidades, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addComponent(botonCambiar, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                         .addGap(26, 26, 26)
                         .addComponent(CombSegundoUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtRespuesta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
         jInternalFrame1Layout.setVerticalGroup(
@@ -112,9 +114,24 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
+double valor = Double.parseDouble(spnCambiarGrados.getValue().toString());
+
+    EnumTemperatura origen =
+        EnumTemperatura.valueOf(combPrimerUnidades.getSelectedItem().toString());
+
+EnumTemperatura destino =
+        EnumTemperatura.valueOf(CombSegundoUnidades.getSelectedItem().toString());
+
+    ControladorUnidades controlador = new ControladorUnidades();
+
+    double resultado = controlador.convertir(valor, origen, destino);
+    
+    txtRespuesta.setText(String.valueOf(resultado));
+    System.out.println("Botón");                                    
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCambiarActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -137,6 +154,10 @@ public class FrmConvertidorUnidades extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FrmConvertidorUnidades().setVisible(true));
     }
 
+    private void CombSegundoUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CombSegundoUnidadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CombSegundoUnidadesActionPerformed
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CombSegundoUnidades;
     private javax.swing.JButton botonCambiar;
